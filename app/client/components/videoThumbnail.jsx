@@ -1,6 +1,6 @@
+'use client'
 
 import React, { useState } from 'react';
-import Link from "next/link";
 import Image from 'next/image';
 import YouTube from 'react-youtube';
 import {
@@ -20,18 +20,15 @@ export const VideoCard = ({
           y: -20,
         }}
         key={product.title}
-        className="group/product h-96 w-[30rem] relative flex-shrink-0 overflow-hidden"
+        className="group/product min-h-48 w-full sm:h-96 sm:w-[40rem] relative flex-shrink-0 overflow-hidden"
       >
-        <Link
-          href={product.link}
-          className="block group-hover/product:shadow-2xl "
-        >
-          <VideoThumbnail
-              videoId={product.videoId}
-              title={product.title}
-          />
-        </Link>
-        <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none"></div>
+        <VideoThumbnail
+            videoId={product.videoId}
+        />
+        <a
+          href={`https://www.youtube.com/watch?v=${product.videoId}`}
+          target='_blank'
+          className="absolute inset-0 h-full w-full opacity-0 cursor-pointer group-hover/product:opacity-80 "></a>
         <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
           {product.title}
         </h2>
