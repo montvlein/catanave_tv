@@ -14,9 +14,9 @@ import { VideoCard } from "./videoThumbnail";
 export const HeroParallax = ({
   products,
 }) => {
-  const firstRow = products.slice(0, 4);
-  const secondRow = products.slice(4, 8);
-  const thirdRow = products.slice(8, 12);
+  const firstRow = products.slice(0, 5);
+  const secondRow = products.slice(5, 10);
+  const thirdRow = products.slice(10, 15);
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -52,7 +52,7 @@ export const HeroParallax = ({
   return (
     <div
       ref={ref}
-      className="min-h-[300vh] overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="h-[250vh] overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
       <HeroTitle />
       <motion.div
