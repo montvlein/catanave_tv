@@ -1,8 +1,8 @@
 export const videos = [
     {
-    title: "Suscribite",
-    link: "https://www.youtube.com/@Catanavetv",
-    videoId: "ImhKkVpvsOs"
+      title: "Suscribite",
+      link: "https://www.youtube.com/@Catanavetv",
+      videoId: "ImhKkVpvsOs"
     },
     {
       title: "Suscribite",
@@ -53,6 +53,21 @@ export const videos = [
       title: "Suscribite",
       link: "https://www.youtube.com/@Catanavetv",
       videoId: "uNbEs2N1rD8"
+    },
+    {
+      title: "Suscribite",
+      link: "https://www.youtube.com/@Catanavetv",
+      videoId: "P53Dtbp6fOM"
+    },
+    {
+      title: "Suscribite",
+      link: "https://www.youtube.com/@Catanavetv",
+      videoId: "igEyUXAaGSw"
+    },
+    {
+      title: "Suscribite",
+      link: "https://www.youtube.com/@Catanavetv",
+      videoId: "3WA9YnhrG8k"
     },
     {
       title: "Suscribite",
