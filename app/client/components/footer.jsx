@@ -4,7 +4,7 @@ import { Button } from "./button-with-effect"
 
 const Footer = () => {
     return(
-        <footer className="h-[20vh] p-4 flex flex-col-reverse sm:flex-row gap-4 justify-evenly items-center" >
+        <footer className="min-h-[20vh] p-4 flex flex-col-reverse sm:flex-row gap-4 justify-evenly items-center" >
             <div className="flex flex-col gap-4 px-4 pb-4 ">
                 { socialNetworks.map( (social, id) =>
                 <Link href={social.link} key={id} className="flex flex-row gap-2 items-center">
