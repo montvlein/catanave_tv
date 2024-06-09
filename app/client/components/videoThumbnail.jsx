@@ -1,5 +1,7 @@
 
+import React, { useState } from 'react';
 import Link from "next/link";
+import Image from 'next/image';
 import YouTube from 'react-youtube';
 import {
     motion
@@ -38,16 +40,23 @@ export const VideoCard = ({
   };
 
 const VideoThumbnail = ({ videoId }) => {
+  const [isLoading, setIsLoading] = useState(true);
+
     const onReady = (event) => {
         // Acceder al reproductor de YouTube y reproducir el video
         event.target.mute();
         event.target.playVideo();
+        setIsLoading(false);
+    };
+
+    const onPlay = () => {
+
     };
 
     const onEnd = (event) => {
         event.target.playVideo();
       };
-    
+
     const opts = {
         // height: '400',
         // width: '450',
@@ -60,11 +69,15 @@ const VideoThumbnail = ({ videoId }) => {
           showinfo: 0,
         },
     };
-    
 
   return (
     <div className="absolute h-full w-full inset-0 flex items-center">
-        <YouTube videoId={videoId} opts={opts} onReady={onReady} onEnd={onEnd}/>
+      {isLoading && (
+        <div className="absolute inset-0 flex items-center justify-center bg-black">
+          <Image src="/logo.png" alt="Loading..." layout="fill" objectFit="contain" />
+        </div>
+      )}
+        <YouTube videoId={videoId} opts={opts} onReady={onReady} onPlay={onPlay} onEnd={onEnd}/>
     </div>
   );
 };
