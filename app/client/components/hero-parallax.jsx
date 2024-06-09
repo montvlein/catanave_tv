@@ -45,14 +45,19 @@ export const HeroParallax = ({
     useTransform(scrollYProgress, [0, 0.2], [20, 0]),
     springConfig
   );
+
+  const isMobile = window.innerWidth < 640; // Ajusta este valor según el breakpoint deseado
+  const mobileTranslateY = -300; // Valor para móviles
+  const desktopTranslateY = -700; // Valor para escritorio
+
   const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [-700, 500]),
+    useTransform(scrollYProgress, [0, 0.2], [isMobile ? mobileTranslateY : desktopTranslateY, 500]),
     springConfig
   );
   return (
     <div
       ref={ref}
-      className="h-[250vh] overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="h-[210vh] sm:h-[250vh] overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
       <HeroTitle />
       <motion.div
