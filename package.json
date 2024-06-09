@@ -10,9 +10,13 @@
   },
   "dependencies": {
     "@million/lint": "^1.0.0-rc.26",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.2.10",
     "next": "14.2.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-youtube": "^10.1.0",
+    "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
     "postcss": "^8",

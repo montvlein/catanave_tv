@@ -1,3 +1,6 @@
+import { HeroParallax } from "@components/hero-parallax";
+import { videos } from "./server/infoVideos";
+
 export default function Home() {
   return (
     <main className="flex flex-col">
@@ -8,8 +11,6 @@ export default function Home() {
 
 function Hero() {
   return(
-    <section className="bg-green-700 h-dvh">
-      <span>Catannabis Tv</span>
-    </section>
+    <HeroParallax products={videos} />
   )
 }
