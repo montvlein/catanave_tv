@@ -7,6 +7,7 @@ import {
   useTransform,
   useSpring,
 } from "framer-motion";
+import { useWindowSize } from "@uidotdev/usehooks";
 
 import { HeroTitle } from "./hero-title";
 import { VideoCard } from "./videoThumbnail";
@@ -14,6 +15,7 @@ import { VideoCard } from "./videoThumbnail";
 export const HeroParallax = ({
   products,
 }) => {
+  const size = useWindowSize();
   const firstRow = products.slice(0, 5);
   const secondRow = products.slice(5, 10);
   const thirdRow = products.slice(10, 15);
@@ -46,7 +48,7 @@ export const HeroParallax = ({
     springConfig
   );
 
-  const isMobile = window.innerWidth < 640; // Ajusta este valor según el breakpoint deseado
+  const isMobile = size.width < 640; // Ajusta este valor según el breakpoint deseado
   const mobileTranslateY = -300; // Valor para móviles
   const desktopTranslateY = -700; // Valor para escritorio
 
