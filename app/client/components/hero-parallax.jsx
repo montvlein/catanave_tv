@@ -8,7 +8,7 @@ import {
   useSpring,
 } from "framer-motion";
 
-import { Header } from "./hero-title";
+import { HeroTitle } from "./hero-title";
 import { VideoCard } from "./videoThumbnail";
 
 export const HeroParallax = ({
@@ -54,7 +54,7 @@ export const HeroParallax = ({
       ref={ref}
       className="min-h-[300vh] overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
-      <Header />
+      <HeroTitle />
       <motion.div
         style={{
           rotateX,
