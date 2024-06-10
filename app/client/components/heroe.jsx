@@ -19,7 +19,7 @@ export default function Hero() {
 
 function HeroPhone({products}) {
   return (
-    <section>
+    <section className="bg-custom">
       <HeroTitle />
       <Slider />
     </section>
