@@ -20,7 +20,7 @@ export const VideoCard = ({
           y: -20,
         }}
         key={product.title}
-        className="group/product min-h-48 w-full sm:h-96 sm:w-[40rem] relative flex-shrink-0 overflow-hidden"
+        className="group/product h-96 w-[40rem] relative flex-shrink-0 overflow-hidden"
       >
         <VideoThumbnail
             videoId={product.videoId}

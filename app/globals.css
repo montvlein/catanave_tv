@@ -31,6 +31,40 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+input[type="range"] {
+  -webkit-appearance: none;
+  height: 2px;
+  background: #222;
+  border-radius: 5px;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity .2s;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  background: #00F;
+  background: url('/logo.png') no-repeat center;
+  background-size: contain;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 90;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 30px;
+  height: 30px;
+  background: #00F;
+  background: url('/logo.png') no-repeat center;
+  background-size: contain;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 90;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
