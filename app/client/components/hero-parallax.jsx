@@ -10,7 +10,7 @@ import {
 import { useWindowSize } from "@uidotdev/usehooks";
 
 import { HeroTitle } from "./hero-title";
-import { VideoCard } from "./videoThumbnail";
+import Slider from "@components/slider";
 
 export const HeroParallax = ({
   products,
@@ -71,33 +71,9 @@ export const HeroParallax = ({
         }}
         className=""
       >
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
-          {firstRow.map((product) => (
-            <VideoCard
-              product={product}
-              translate={translateX}
-              key={product.title}
-            />
-          ))}
-        </motion.div>
-        <motion.div className="flex flex-row  mb-20 space-x-20 ">
-          {secondRow.map((product) => (
-            <VideoCard
-              product={product}
-              translate={translateXReverse}
-              key={product.title}
-            />
-          ))}
-        </motion.div>
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
-          {thirdRow.map((product) => (
-            <VideoCard
-              product={product}
-              translate={translateX}
-              key={product.title}
-            />
-          ))}
-        </motion.div>
+        <Slider sliderList={firstRow} translateX={translateX} />
+        <Slider sliderList={secondRow} translateX={translateXReverse} />
+        <Slider sliderList={thirdRow} translateX={translateX} />
       </motion.div>
     </div>
   );

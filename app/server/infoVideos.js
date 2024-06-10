@@ -72,6 +72,6 @@ export const videos = [
     {
       title: "Suscribite",
       link: "https://www.youtube.com/@Catanavetv",
-      videoId: "3WA9YnhrG8k"
+      videoId: "4IfJFi90yWw"
     },
 ]
