@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { VideoCard } from "./videoThumbnail";
 import { videos } from "@/server/infoVideos";
 import { motion, useMotionValue } from "framer-motion";

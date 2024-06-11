@@ -3,9 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import YouTube from 'react-youtube';
-import {
-    motion
-  } from "framer-motion";
+import { motion } from "framer-motion";
 
 export const VideoCard = ({
     product,
@@ -20,7 +18,7 @@ export const VideoCard = ({
           y: -20,
         }}
         key={product.title}
-        className="group/product h-96 w-[40rem] relative flex-shrink-0 overflow-hidden"
+        className="group/product h-96 w-screen sm:w-[40rem] relative flex-shrink-0 overflow-hidden"
       >
         <VideoThumbnail
             videoId={product.videoId}
@@ -55,8 +53,6 @@ const VideoThumbnail = ({ videoId }) => {
       };
 
     const opts = {
-        // height: '400',
-        // width: '450',
         playerVars: {
           autoplay: 1,
           mute: 1,
@@ -74,7 +70,11 @@ const VideoThumbnail = ({ videoId }) => {
           <Image src="/logo.png" alt="Loading..." layout="fill" objectFit="contain" />
         </div>
       )}
+
+      <div className="video-container">
         <YouTube videoId={videoId} opts={opts} onReady={onReady} onPlay={onPlay} onEnd={onEnd}/>
+      </div>
+
     </div>
   );
 };
