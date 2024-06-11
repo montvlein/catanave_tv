@@ -30,11 +30,11 @@ export default function Slider({sliderList=videos, translateX}) {
         style={{ x }}
         ref={containerRef}
       >
-        {sliderList.map((product) => (
+        {sliderList.map((product, i) => (
           <VideoCard
             product={product}
             translate={translateX}
-            key={product.title}
+            key={product.title + i}
           />
         ))}
       </motion.div>
