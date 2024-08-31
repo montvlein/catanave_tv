@@ -57,6 +57,15 @@ function HeroPhone({products}) {
     <section className="flex-1 bg-custom flex items-center">
       <div className="flex justify-center items-center w-full max-w-2xl mx-auto p-4">
         <div className="bg-[#8368a8] w-full border-8 border-[#3c2c5e] relative rounded-lg flex flex-col items-center">
+          <div className="absolute -top-4 flex flex-col items-center">
+            {/* Semicírculo negro */}
+            <div className="w-10 h-5 bg-[#3c2c5e] rounded-t-full"></div>
+            {/* Líneas de la antena */}
+            <div className="relative w-full">
+              <div className="absolute -top-10 -left-2 w-0.5 h-8 bg-[#3c2c5e] transform -rotate-45"></div>
+              <div className="absolute -top-10 -right-2 w-0.5 h-8 bg-[#3c2c5e] transform rotate-45"></div>
+            </div>
+          </div>
           <div className="bg-[#61aee2] w-11/12 aspect-video my-4 flex justify-center items-center rounded-lg shadow-inner p-2">
             <YouTube
               videoId={products[actualVideo].videoId} // Reemplaza con el ID del video que deseas mostrar
@@ -77,6 +86,8 @@ function HeroPhone({products}) {
           <div className="w-12 h-2 bg-[#3c2c5e] mt-2 relative">
             <div className="w-2.5 h-1 bg-[#3c2c5e] absolute -bottom-1 left-5"></div>
           </div>
+          <div className="absolute -bottom-4 left-1/4 w-8 h-2 bg-[#3c2c5e] rounded-t-md"></div>
+          <div className="absolute -bottom-4 right-1/4 w-8 h-2 bg-[#3c2c5e] rounded-t-md"></div>
         </div>
       </div>
     </section>
