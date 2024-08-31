@@ -21,7 +21,11 @@ function HeroPhone({products}) {
   return (
     <section className="bg-custom">
       <HeroTitle />
-      <Slider />
+      {/* <Slider /> */}
+      <div className="absolute inset-0 flex items-center justify-center bg-black">
+        <span className="uppercase">under construction</span>
+        <Image src="/logo.png" alt="Loading..." layout="fill" objectFit="contain" />
+      </div>
     </section>
   )
 }
