@@ -5,6 +5,7 @@ import { videos } from "@/server/infoVideos";
 import { useWindowSize } from "@uidotdev/usehooks";
 import { HeroTitle } from "./hero-title";
 import Slider from "./slider";
+import Image from 'next/image';
 
 export default function Hero() {
   const size = useWindowSize();
