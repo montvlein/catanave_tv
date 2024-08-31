@@ -3,9 +3,6 @@
 import { HeroParallax } from "./hero-parallax";
 import { videos } from "@/server/infoVideos";
 import { useWindowSize } from "@uidotdev/usehooks";
-import { HeroTitle } from "./hero-title";
-import Slider from "./slider";
-import Image from 'next/image';
 
 export default function Hero() {
   const size = useWindowSize();
@@ -18,14 +15,69 @@ export default function Hero() {
   )
 }
 
+import YouTube from 'react-youtube';
+import { useState } from "react";
+
 function HeroPhone({products}) {
+  const [actualVideo, setActualVideo] = useState(0)
+
+  const videoOptions = {
+    height: '100%',
+    width: '100%',
+    playerVars: {
+      autoplay: 1,
+      mute: 1,
+      modestbranding: 1,
+      controls: 1,
+      rel: 0,
+      showinfo: 0,
+    },
+  };
+
+  const onEnd = (event) => {
+    nextVideo()
+    event.target.playVideo();
+  };
+
+  const nextVideo = (e) =>{
+    e?.preventDefault()
+    actualVideo == products.length-1 ?
+    setActualVideo(0):
+    setActualVideo(actualVideo+1)
+  }
+
+  const prevVideo = (e) =>{
+    e?.preventDefault()
+    actualVideo == 0 ?
+    setActualVideo(products.length-1):
+    setActualVideo(actualVideo-1)
+  }
+
   return (
-    <section className="bg-custom">
-      <HeroTitle />
-      {/* <Slider /> */}
-      <div className="absolute inset-0 flex items-center justify-center bg-black">
-        <span className="uppercase">under construction</span>
-        <Image src="/logo.png" alt="Loading..." layout="fill" objectFit="contain" />
+    <section className="flex-1 bg-custom flex items-center">
+      <div className="flex justify-center items-center w-full max-w-2xl mx-auto p-4">
+        <div className="bg-[#8368a8] w-full border-8 border-[#3c2c5e] relative rounded-lg flex flex-col items-center">
+          <div className="bg-[#61aee2] w-11/12 aspect-video my-4 flex justify-center items-center rounded-lg shadow-inner p-2">
+            <YouTube
+              videoId={products[actualVideo].videoId} // Reemplaza con el ID del video que deseas mostrar
+              opts={videoOptions}
+              onEnd={onEnd}
+              className="w-full h-full rounded-lg shadow-[inset_0_0_8px_rgba(0,0,0,0.8)]"
+            />
+          </div>
+          <div className="flex justify-around w-5/6 mt-1">
+            <div className="w-5 h-5 bg-[#3c2c5e] rounded-full cursor-pointer"
+              onClick={prevVideo}
+            ></div>
+            <div
+              className="w-5 h-5 bg-[#3c2c5e] rounded-full cursor-pointer"
+              onClick={nextVideo}
+            ></div>
+          </div>
+          <div className="w-12 h-2 bg-[#3c2c5e] mt-2 relative">
+            <div className="w-2.5 h-1 bg-[#3c2c5e] absolute -bottom-1 left-5"></div>
+          </div>
+        </div>
       </div>
     </section>
   )
