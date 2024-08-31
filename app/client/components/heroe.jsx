@@ -75,13 +75,17 @@ function HeroPhone({products}) {
             />
           </div>
           <div className="flex justify-around w-5/6 mt-1">
-            <div className="w-5 h-5 bg-[#3c2c5e] rounded-full cursor-pointer"
+            <div className="relative w-6 h-6 cursor-pointer"
               onClick={prevVideo}
-            ></div>
+            >
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-t-8 border-b-8 border-r-8 border-transparent border-r-[#3c2c5e]"></div>
+            </div>
             <div
-              className="w-5 h-5 bg-[#3c2c5e] rounded-full cursor-pointer"
+              className="relative w-6 h-6 cursor-pointer"
               onClick={nextVideo}
-            ></div>
+            >
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-t-8 border-b-8 border-l-8 border-transparent border-l-[#3c2c5e]"></div>
+            </div>
           </div>
           <div className="w-12 h-2 bg-[#3c2c5e] mt-2 relative">
             <div className="w-2.5 h-1 bg-[#3c2c5e] absolute -bottom-1 left-5"></div>
