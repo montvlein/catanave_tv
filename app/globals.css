@@ -103,7 +103,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .bg-tv {
-  background-image: url('/tv.png');
+  background-image: url('/TV.png');
   background-position: center;
   background-size:contain;
   background-repeat: no-repeat;
