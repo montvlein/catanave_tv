@@ -11,11 +11,18 @@ export default function Hero() {
   return <TvComponent videos={videos} />
 }
 
-import YouTube from 'react-youtube';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
+import dynamic from 'next/dynamic';
+const DynamicYouTube = dynamic(() => import('react-youtube'), { ssr: false });
 
 function TvComponent({videos}) {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const [actualVideo, setActualVideo] = useState(0)
   const [mute, setMute] = useState(1)
 
@@ -60,13 +67,13 @@ function TvComponent({videos}) {
   return(
     <div className="relative w-full flex items-center justify-center">
         <div className="relative w-full h-3/4 aspect-video relative flex justify-center items-center overflow-hidden">
-          <Image src="/tv.png" className="absolute z-10" alt="" layout="fill"/>
-          <YouTube
+          {isClient && <Image src="/tv.png" className="absolute z-10" alt="" layout="fill"/>}
+          {isClient && (<DynamicYouTube
             videoId={videos[actualVideo].videoId}
             opts={videoOptions}
             onEnd={onEnd}
             className="w-8/12 h-full mr-4 mb-8 rounded-lg bg-black shadow-[inset_0_0_8px_rgba(0,0,0,0.8)]"
-            />
+            />)}
         </div>
     </div>
   )
