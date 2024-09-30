@@ -2,15 +2,13 @@
 
 import { HeroParallax } from "./hero-parallax";
 import { videos } from "@/server/infoVideos";
-import { isMobile } from 'react-device-detect';
+import { isMobile, isDesktop } from 'react-device-detect';
 
 export default function Hero() {
 
-  if (isMobile) return <TvComponent videos={videos} />
+  if (isDesktop) return <HeroParallax products={videos} />
 
-  return(
-    <HeroParallax products={videos} />
-  )
+  return <TvComponent videos={videos} />
 }
 
 import YouTube from 'react-youtube';
