@@ -65,7 +65,7 @@ function TvComponent({videos}) {
             videoId={videos[actualVideo].videoId}
             opts={videoOptions}
             onEnd={onEnd}
-            className="w-8/12 h-3/4 mr-4 mb-8 rounded-lg bg-black shadow-[inset_0_0_8px_rgba(0,0,0,0.8)]"
+            className="w-8/12 h-3/4 mr-4 md:mr-12 mb-8 md:mb-28 rounded-lg bg-black shadow-[inset_0_0_8px_rgba(0,0,0,0.8)]"
             />
         </div>
     </div>
