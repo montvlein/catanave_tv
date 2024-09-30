@@ -6,7 +6,7 @@ import { isMobile, isDesktop } from 'react-device-detect';
 
 export default function Hero() {
 
-  if (isDesktop) return <HeroParallax products={videos} />
+  // if (isDesktop) return <HeroParallax products={videos} />
 
   return <TvComponent videos={videos} />
 }
