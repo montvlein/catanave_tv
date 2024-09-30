@@ -8,7 +8,7 @@ export default function Hero() {
   const size = useWindowSize();
   const isMobile = size.width < 882;
 
-  if (isMobile) return <HeroPhone products={videos} />
+  if (isMobile) return <TvComponent videos={videos} />
 
   return(
     <HeroParallax products={videos} />
@@ -17,6 +17,63 @@ export default function Hero() {
 
 import YouTube from 'react-youtube';
 import { useState } from "react";
+
+function TvComponent({videos}) {
+  const [actualVideo, setActualVideo] = useState(0)
+  const [mute, setMute] = useState(1)
+
+  const onEnd = (event) => {
+    nextVideo()
+    event.target.playVideo();
+  };
+
+  const nextVideo = (e) =>{
+    e?.preventDefault()
+    actualVideo == videos.length-1 ?
+    setActualVideo(0):
+    setActualVideo(actualVideo+1)
+  }
+
+  const prevVideo = (e) =>{
+    e?.preventDefault()
+    actualVideo == 0 ?
+    setActualVideo(videos.length-1):
+    setActualVideo(actualVideo-1)
+  }
+
+  const handleMute = (e) => {
+    e.preventDefault()
+    const muteOption = mute == 0 ? 1 : 0
+    setMute(muteOption)
+  }
+
+  const videoOptions = {
+    height: '100%',
+    width: '100%',
+    playerVars: {
+      autoplay: 1,
+      mute,
+      modestbranding: 1,
+      controls: 0,
+      rel: 0,
+      showinfo: 0,
+    },
+  };
+
+  return(
+    <div className="relative w-full flex items-center justify-center">
+        <div className="relative w-full h-3/4 aspect-video relative flex justify-center items-center">
+          <img src="tv.png" className="absolute z-10"/>
+          <YouTube
+            videoId={videos[actualVideo].videoId}
+            opts={videoOptions}
+            onEnd={onEnd}
+            className="w-8/12 h-full mr-4 mb-8 rounded-lg bg-black shadow-[inset_0_0_8px_rgba(0,0,0,0.8)]"
+            />
+        </div>
+    </div>
+  )
+}
 
 function HeroPhone({products}) {
   const [actualVideo, setActualVideo] = useState(0)
@@ -61,7 +118,7 @@ function HeroPhone({products}) {
   }
 
   return (
-    <section className="flex-1 bg-custom flex items-center">
+    <section className="flex items-center">
       <div className="flex justify-center items-center w-full max-w-2xl mx-auto p-4">
         <div className="bg-[#8368a8] w-full border-8 border-[#3c2c5e] relative rounded-lg flex flex-col items-center">
           <div className="absolute -top-4 flex flex-col items-center">

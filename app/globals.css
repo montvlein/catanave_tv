@@ -101,3 +101,10 @@ input[type="range"]::-moz-range-thumb {
     text-wrap: balance;
   }
 }
+
+.bg-tv {
+  background-image: url('/tv.png');
+  background-position: center;
+  background-size:contain;
+  background-repeat: no-repeat;
+}
