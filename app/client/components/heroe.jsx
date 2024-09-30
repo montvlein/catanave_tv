@@ -6,23 +6,15 @@ import { isMobile, isDesktop } from 'react-device-detect';
 
 export default function Hero() {
 
-  // if (isDesktop) return <HeroParallax products={videos} />
+  if (isDesktop) return <HeroParallax products={videos} />
 
   return <TvComponent videos={videos} />
 }
 
-import { useState, useEffect } from "react";
-import Image from "next/image";
-import dynamic from 'next/dynamic';
-const DynamicYouTube = dynamic(() => import('react-youtube'), { ssr: false });
+import YouTube from 'react-youtube';
+import { useState } from "react";
 
 function TvComponent({videos}) {
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
   const [actualVideo, setActualVideo] = useState(0)
   const [mute, setMute] = useState(1)
 
@@ -66,14 +58,14 @@ function TvComponent({videos}) {
 
   return(
     <div className="relative w-full flex items-center justify-center">
-        <div className="relative w-full h-3/4 aspect-video relative flex justify-center items-center overflow-hidden">
-          {isClient && <Image src="/tv.png" className="absolute z-10" alt="" layout="fill"/>}
-          {isClient && (<DynamicYouTube
+        <div className="relative w-full h-3/4 aspect-video relative flex justify-center items-center">
+          {/* <img src="tv.png" className="absolute z-10" alt=""/> */}
+          <YouTube
             videoId={videos[actualVideo].videoId}
             opts={videoOptions}
             onEnd={onEnd}
             className="w-8/12 h-full mr-4 mb-8 rounded-lg bg-black shadow-[inset_0_0_8px_rgba(0,0,0,0.8)]"
-            />)}
+            />
         </div>
     </div>
   )
