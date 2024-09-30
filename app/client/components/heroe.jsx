@@ -63,7 +63,7 @@ function TvComponent({videos}) {
   return(
     <div className="relative w-full flex items-center justify-center">
         <div className="relative w-full h-3/4 aspect-video relative flex justify-center items-center">
-          <img src="tv.png" className="absolute z-10"/>
+          <img src="tv.png" className="absolute z-10" alt=""/>
           <YouTube
             videoId={videos[actualVideo].videoId}
             opts={videoOptions}
