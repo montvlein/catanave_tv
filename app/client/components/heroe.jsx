@@ -2,11 +2,9 @@
 
 import { HeroParallax } from "./hero-parallax";
 import { videos } from "@/server/infoVideos";
-import { useWindowSize } from "@uidotdev/usehooks";
+import { isMobile } from 'react-device-detect';
 
 export default function Hero() {
-  const size = useWindowSize();
-  const isMobile = size.width < 882;
 
   if (isMobile) return <TvComponent videos={videos} />
 
