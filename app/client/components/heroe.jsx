@@ -13,6 +13,7 @@ export default function Hero() {
 
 import YouTube from 'react-youtube';
 import { useState } from "react";
+import Image from "next/image";
 
 function TvComponent({videos}) {
   const [actualVideo, setActualVideo] = useState(0)
@@ -58,8 +59,8 @@ function TvComponent({videos}) {
 
   return(
     <div className="relative w-full flex items-center justify-center">
-        <div className="relative w-full h-3/4 aspect-video relative flex justify-center items-center">
-          <img src="tv.png" className="absolute z-10" alt=""/>
+        <div className="relative w-full h-3/4 aspect-video relative flex justify-center items-center overflow-hidden">
+          <Image src="/tv.png" className="absolute z-10" alt="" layout="fill"/>
           <YouTube
             videoId={videos[actualVideo].videoId}
             opts={videoOptions}
