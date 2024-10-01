@@ -2,6 +2,8 @@ import Footer from "@components/footer";
 import Hero from "@components/heroe";
 import Link from "next/link";
 import { Button } from "@components/button-with-effect";
+import TvComponent from "./client/components/tv";
+import { videos } from "@/server/infoVideos";
 
 export default function Home() {
   return (
@@ -13,6 +15,7 @@ export default function Home() {
       </Link>
       <main className="flex-1 bg-custom flex items-center flex-wrap">
         <Hero/>
+        <TvComponent videos={videos} />
       </main>
       <Footer/>
     </div>
