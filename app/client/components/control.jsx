@@ -7,7 +7,7 @@ const RemoteControl = ({children}) => {
   };
 
   return (
-    <div className="fixed -bottom-24 -right-24 md:-bottom-20 md:-right-10 perspective-1000 z-10">
+    <div className="fixed -bottom-4 sm:-bottom-24 -right-24 md:-bottom-20 md:-right-10 perspective-1000 z-10">
       <div className="w-[200px] bg-gray-800 rounded-3xl p-6 shadow-lg" style={{
         transform: 'rotate(-15deg) skew(0deg, -5deg) translate(-50px, -100px)'
       }}>
