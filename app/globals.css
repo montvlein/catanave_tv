@@ -60,6 +60,11 @@ input[type="range"]::-moz-range-thumb {
   z-index: 90;
 }
 
+.bg-img {
+  background-image: url('/fondo_sitio_cata.jpg');
+  background-size: cover;
+}
+
 .bg-custom {
   position: relative;
   overflow: hidden; /* Para asegurarte de que el pseudo-elemento no se desborde */
