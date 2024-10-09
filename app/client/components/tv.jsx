@@ -2,6 +2,7 @@
 
 import YouTube from 'react-youtube';
 import { useState } from "react";
+import RemoteControl from './control';
 
 function TvComponent({videos}) {
   const randomInit = Math.floor(Math.random() * videos.length)
@@ -49,10 +50,17 @@ function TvComponent({videos}) {
   return(
     <div className="relative w-full flex items-center justify-center">
         <div className="relative w-full h-3/4 max-h-dvh aspect-video relative flex justify-center items-center">
-          {/* <img src="tv.png" className="absolute z-10" alt=""/> */}
-          <div className="absolute z-10 w-full h-full bg-tv flex items-end justify-center">
-            <div className="-m-10 sm:m-0 md:p-2 rounded bg-gray-500 flex justify-around items-center w-2/4">
-              <button className="relative w-6 h-6 cursor-pointer"
+          <div className="absolute z-10 w-full h-full bg-tv flex items-end justify-center"></div>
+          <YouTube
+            videoId={videos[actualVideo].videoId}
+            opts={videoOptions}
+            onEnd={onEnd}
+            className="aspect-square w-8/12 h-3/4 mr-4 md:mr-12 mb-4 md:mb-28 rounded-lg bg-black shadow-[inset_0_0_8px_rgba(0,0,0,0.8)]"
+            />
+        </div>
+        <RemoteControl>
+          <div className="w-full flex gap-4 items-center justify-center">
+            <button className="relative w-6 h-6 cursor-pointer bg-gray-500 rounded-sm"
                 onClick={prevVideo}
               >
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-t-8 border-b-8 border-r-8 border-transparent border-r-[#3c2c5e]"></div>
@@ -73,20 +81,13 @@ function TvComponent({videos}) {
                 }
               </button>
               <button
-                className="relative w-6 h-6 cursor-pointer"
+                className="relative w-6 h-6 cursor-pointer bg-gray-500 rounded-sm"
                 onClick={nextVideo}
               >
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-t-8 border-b-8 border-l-8 border-transparent border-l-[#3c2c5e]"></div>
               </button>
-            </div>
           </div>
-          <YouTube
-            videoId={videos[actualVideo].videoId}
-            opts={videoOptions}
-            onEnd={onEnd}
-            className="aspect-square w-8/12 h-3/4 mr-4 md:mr-12 mb-4 md:mb-28 rounded-lg bg-black shadow-[inset_0_0_8px_rgba(0,0,0,0.8)]"
-            />
-        </div>
+        </RemoteControl>
     </div>
   )
 }
