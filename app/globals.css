@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
 :root {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
@@ -24,6 +22,13 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: #000
+}
+
+.text-font-playwrite-gb-semijoined {
+  font-family: "Playwrite GB S", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 input[type="range"] {
@@ -58,6 +63,11 @@ input[type="range"]::-moz-range-thumb {
   border-radius: 50%;
   cursor: pointer;
   z-index: 90;
+}
+
+.bg-img {
+  background-image: url('/fondo_sitio_cata.jpg');
+  background-size: cover;
 }
 
 .bg-custom {
@@ -107,4 +117,10 @@ input[type="range"]::-moz-range-thumb {
   background-position: center;
   background-size:98% 100%;
   background-repeat: no-repeat;
+}
+
+@media (min-width: 768px) {
+  .bg-tv {
+    background-size: contain;
+  }
 }
