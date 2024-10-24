@@ -49,13 +49,14 @@ function TvComponent({videos}) {
 
   return(
     <div className="relative w-full flex items-center justify-center">
-        <div className="relative w-full h-3/4 max-h-dvh aspect-video relative flex justify-center items-center">
-          <div className="absolute z-10 w-full h-full bg-tv flex items-end justify-center"></div>
+        <div className="relative w-full h-3/4 md:h-full max-h-dvh aspect-video relative flex justify-center items-center">
+          <div className="absolute z-20 w-full h-full bg-tv flex items-end justify-center"></div>
+          <div className="absolute w-7/12 h-3/4 bg-black flex items-end justify-center"></div>
           <YouTube
             videoId={videos[actualVideo].videoId}
             opts={videoOptions}
             onEnd={onEnd}
-            className="aspect-square w-8/12 h-3/4 mr-4 md:mr-12 mb-4 md:mb-28 rounded-lg bg-black shadow-[inset_0_0_8px_rgba(0,0,0,0.8)]"
+            className="z-10 aspect-square w-8/12 lg:w-6/12 h-3/4 mr-4 md:mr-12 mb-4 md:mb-10 lg:mb-28 rounded-lg bg-black shadow-[inset_0_0_8px_rgba(0,0,0,0.8)]"
             />
         </div>
         <RemoteControl>

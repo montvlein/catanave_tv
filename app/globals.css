@@ -113,3 +113,9 @@ input[type="range"]::-moz-range-thumb {
   background-size:98% 100%;
   background-repeat: no-repeat;
 }
+
+@media (min-width: 768px) {
+  .bg-tv {
+    background-size: contain;
+  }
+}
