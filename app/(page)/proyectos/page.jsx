@@ -7,13 +7,13 @@ export default function Proyectos() {
         <header className="bg-cyan-900 p-4 flex justify-between items-center">
             <h1 className="text-semibold text-xl text-font-playwrite-gb-semijoined" >Proyectos</h1>
             <nav className="flex items-center">
-                <Link href={"/"} className="flex flex-row justify-center items-center gap-4">
+                <Link href={"/"} className="flex flex-row justify-center items-center gap-4 text-font-playwrite-gb-semijoined">
                 <Image
                     src={"/logo.png"}
                     width={40}
                     height={40}
                 ></Image>
-                Inicio
+                Videos
                 </Link>
             </nav>
         </header>
