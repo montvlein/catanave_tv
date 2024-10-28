@@ -1,3 +1,4 @@
+import Header from "@/client/components/header";
 import RemoteControl from "@/client/components/control";
 import { sanityClient, urlFor } from "@/../sanity.config";
 import { Calendar, MapPin, Users } from 'lucide-react';
@@ -12,17 +13,19 @@ export default async function gatheringos() {
   const gatherings = await sanityClient.fetch(GATHERINGS_QUERY, {}, options);
 
   return (
-    <main className="container mx-auto min-h-screen p-8">
-    <RemoteControl></RemoteControl>
-      <h1 className="text-4xl font-bold mb-8">Eventos</h1>
-      <ul className="flex flex-wrap flex-col gap-y-4 p-4">
-        {gatherings.map((post) => (
-          <li className="hover:underline" key={post._id}>
-              <GatheringCard gathering={post} />
-          </li>
-        ))}
-      </ul>
-    </main>
+    <>
+      <Header title={"Eventos"} />
+      <main className="container mx-auto p-8">
+        <RemoteControl/>
+        <ul className="grid grid-cols-2 gap-4">
+          {gatherings.map((post) => (
+            <li className="w-full" key={post._id}>
+                <GatheringCard gathering={post} />
+            </li>
+          ))}
+        </ul>
+      </main>
+    </>
   );
 }
 
@@ -44,7 +47,7 @@ function GatheringCard({gathering}) {
   const imageUrl = urlFor(gathering.image).url()
 
   return (
-    <div className="bg-white overflow-hidden shadow rounded-lg w-1/2">
+    <div className="bg-white border border-gray-200 rounded-lg md:flex-row dark:border-gray-700 dark:bg-gray-800 overflow-hidden shadow rounded-lg ">
             <div className="relative">
               <img
                 src={imageUrl}
@@ -61,20 +64,20 @@ function GatheringCard({gathering}) {
             </div>
             <div className="p-4">
               <div className="flex justify-between items-start">
-                <h3 className="text-lg font-medium text-gray-900">{gathering.title}</h3>
+                <h3 className="text-lg font-medium text-gray-900 dark:text-white">{gathering.title}</h3>
               </div>
-              <p className="mt-1 text-sm text-gray-500">{gathering.description}</p>
+              <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{gathering.description}</p>
               <div className="mt-4 space-y-2">
-                <div className="flex items-center text-sm text-gray-500">
+                <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
                   <Calendar className="h-5 w-5 mr-2" />
                   {new Date(gathering.date).toLocaleString()}
                 </div>
-                <div className="flex items-center text-sm text-gray-500">
+                <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
                   <MapPin className="h-5 w-5 mr-2" />
                   {gathering.location}
                 </div>
                 { gathering.maxAttendees && (
-                  <div className="flex items-center text-sm text-gray-500">
+                  <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
                     <Users className="h-5 w-5 mr-2" />
                     {gathering.attendees} / {gathering.maxAttendees} attendees
                   </div>

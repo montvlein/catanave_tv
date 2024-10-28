@@ -9,7 +9,7 @@ const RemoteControl = ({children}) => {
   const pathname = usePathname()
   const isActive = (path) => pathname === path;
   const styles = (selectedPath) => {
-    return `p-2 text-center w-full text-white rounded-xl hover:bg-gray-600 active:scale-98 transition-all
+    return `p-2 text-center w-full text-white rounded-xl transition-all
     ${isActive(selectedPath) ? "bg-rose-700" : "bg-gray-700 hover:bg-gray-600 active:scale-98"}`
   }
 
