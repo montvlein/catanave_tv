@@ -4,13 +4,13 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { usePathname  } from 'next/navigation'
 import { paths } from '@/utils/routes';
-import { Menu } from 'lucide-react';
+import { Menu, Youtube, BookImage, CalendarRange } from 'lucide-react';
 
 const RemoteControl = ({children}) => {
   const pathname = usePathname()
   const isActive = (path) => pathname === path;
   const styles = (selectedPath) => {
-    return `p-2 text-center w-full text-white rounded-xl transition-all
+    return `p-2 px-4 text-center w-full text-white rounded-xl transition-all flex items-center justify-between gap-1
     ${isActive(selectedPath) ? "bg-rose-700" : "bg-gray-700 hover:bg-gray-600 active:scale-98"}`
   }
 
@@ -38,9 +38,9 @@ const RemoteControl = ({children}) => {
         <div className={`w-3 h-3 ${colorCircle} rounded-full mb-4 mx-auto`} style={{filter: 'drop-shadow(0px 2px 6px rgba(0, 255, 0, 0.6))'}}/>
         <div className="h-full flex flex-col justify-between">
           <div className="space-y-4 flex flex-col justify-center items-center">
-            <Link href={paths.home}  className={styles(paths.home)}>Videos</Link>
-            <Link href={paths.projects} className={styles(paths.projects)}>Proyectos</Link>
-            <Link href={paths.gatherings} className={styles(paths.gatherings)}>Eventos</Link>
+            <Link href={paths.home} className={styles(paths.home)}><Youtube /> Videos</Link>
+            <Link href={paths.projects} className={styles(paths.projects)}><BookImage /> Proyectos</Link>
+            <Link href={paths.gatherings} className={styles(paths.gatherings)}><CalendarRange /> Eventos</Link>
           </div>
 
           <div className='flex flex-col gap-2'>
