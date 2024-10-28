@@ -1,3 +1,4 @@
+import Footer from "@components/footer";
 import Header from "@/client/components/header";
 import RemoteControl from "@/client/components/control";
 import { sanityClient, urlFor } from "@/../sanity.config";
@@ -13,11 +14,11 @@ export default async function gatheringos() {
   const gatherings = await sanityClient.fetch(GATHERINGS_QUERY, {}, options);
 
   return (
-    <>
+    <div className="flex flex-col min-h-dvh">
       <Header title={"Eventos"} />
-      <main className="container mx-auto p-8">
+      <main className="container flex-1 mx-auto p-8 ">
         <RemoteControl/>
-        <ul className="grid grid-cols-2 gap-4">
+        <ul className="grid sm:grid-cols-2 gap-4">
           {gatherings.map((post) => (
             <li className="w-full" key={post._id}>
                 <GatheringCard gathering={post} />
@@ -25,7 +26,8 @@ export default async function gatheringos() {
           ))}
         </ul>
       </main>
-    </>
+      <Footer/>
+    </div>
   );
 }
 
@@ -70,7 +72,14 @@ function GatheringCard({gathering}) {
               <div className="mt-4 space-y-2">
                 <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
                   <Calendar className="h-5 w-5 mr-2" />
-                  {new Date(gathering.date).toLocaleString()}
+                  {new Date(gathering.date).toLocaleString('es-ES', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: false,
+                  })}
                 </div>
                 <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
                   <MapPin className="h-5 w-5 mr-2" />
