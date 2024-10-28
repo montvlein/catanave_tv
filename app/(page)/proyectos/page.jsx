@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import RemoteControl from "@/client/components/control";
 
 export default function Proyectos() {
     return(
@@ -18,6 +19,7 @@ export default function Proyectos() {
             </nav>
         </header>
         <main className="m-2 p-2">
+            <RemoteControl/>
             <ul className="grid grid-col-3 gap-4">
                 <li>
                     <a href="https://www.facebook.com/photo/?fbid=920171431789030&set=a.920172698455570" className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700" target="_blank">
