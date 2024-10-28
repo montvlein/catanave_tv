@@ -1,11 +1,12 @@
+import Footer from "@components/footer";
 import RemoteControl from "@/client/components/control";
 import Header from "@/client/components/header";
 
 export default function Proyectos() {
     return(
-        <>
+        <div className="flex flex-col min-h-dvh">
         <Header title={"Proyectos"} />
-        <main className="container mx-auto p-8">
+        <main className="container flex-1 mx-auto p-8">
             <RemoteControl/>
             <ul className="grid grid-flow-col auto-cols-max gap-4">
                 <li>
@@ -25,6 +26,7 @@ export default function Proyectos() {
                 </li>
             </ul>
         </main>
-        </>
+        <Footer/>
+        </div>
     )
 }
