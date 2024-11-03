@@ -30,6 +30,19 @@ const StoryboardPage = async ({ params }) => {
 
   const imageUrl = urlFor(storyboard.coverImage).url()
 
+  const getStatusColor = (status) => {
+    switch (status) {
+      case 'draft':
+        return 'bg-yellow-100 text-yellow-800';
+      case 'open':
+        return 'bg-green-100 text-green-800';
+      case 'finished':
+        return 'bg-red-100 text-red-800';
+      default:
+        return 'bg-gray-100 text-gray-800';
+    }
+  };
+
   return (
     <GeneralPageLayout title={"CATANNABIS SERIES"}>
       <div className="bg-indigo-600 p-6 rounded-b-xl shadow-lg">
@@ -60,6 +73,7 @@ const StoryboardPage = async ({ params }) => {
               <p className="text-gray-700 leading-relaxed">
                 {storyboard.description}
               </p>
+              <p><span className={`px-2 rounded-full ${getStatusColor(storyboard.status)}`}>{storyboard.status}</span></p>
             </section>
 
             {/* Lista de capítulos */}
