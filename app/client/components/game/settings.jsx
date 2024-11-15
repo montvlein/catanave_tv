@@ -1,99 +1,159 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Swords, MapPin, Play, Gamepad2 } from 'lucide-react';
+import GameModeSelect from './GameModeSelect';
+import CharacterSelect from './CharacterSelect';
+import StageSelect from './StageSelect';
 
 const GameSetup = ({ onStartGame }) => {
-  const [gameType, setGameType] = useState('basic');
-  const [player1, setPlayer1] = useState('subzero');
-  const [player2, setPlayer2] = useState('kano');
-  const [arenaType, setArenaType] = useState('THRONE_ROOM');
+
+  const [player1, setPlayer1] = useState("");
+  const [player2, setPlayer2] = useState({id:"kano"});
+
   const [isHost, setIsHost] = useState(false);
   const [gameName, setGameName] = useState('');
+
+  const [selectedMode, setSelectedMode] = useState(null);
+  const [selectedCharacter, setSelectedCharacter] = useState(null);
+  const [selectedStage, setSelectedStage] = useState(null);
+
+  useEffect(()=>{
+    if (player1 && player2) setSelectedCharacter(true)
+  }, [player1, player2])
+
+  const isReadyToStart = selectedCharacter && selectedStage && selectedMode;
 
   const handleStartGame = () => {
     const options = {
       arena: {
-        arena: arenaType
+        arena: selectedStage.id
       },
       fighters: [
-        { name: player1 },
-        { name: player2 }
+        { name: player1.id },
+        { name: player2.id }
       ],
       callbacks: {},
       isHost: isHost,
       gameName: gameName,
-      gameType: gameType
+      gameType: selectedMode.id
     };
 
     onStartGame(options);
   };
 
   return (
-    <div className='flex flex-col gap-4'>
-      <h2>Game Setup</h2>
-      <div>
-        <label>
-          Game Type:
-          <select className='text-gray-900' value={gameType} onChange={(e) => setGameType(e.target.value)}>
-            <option value="basic">Basic</option>
-            <option value="network">Network</option>
-            <option value="multiplayer">Multiplayer</option>
-            <option value="webcaminput">Webcam Input</option>
-          </select>
-        </label>
-      </div>
-      <div>
-        <label>
-          Player 1:
-          <select className='text-gray-900' value={player1} onChange={(e) => setPlayer1(e.target.value)}>
-            <option value="subzero">Sub-Zero</option>
-            <option value="kano">Kano</option>
-          </select>
-        </label>
-      </div>
-      <div>
-        <label>
-          Player 2:
-          <select className='text-gray-900' value={player2} onChange={(e) => setPlayer2(e.target.value)}>
-            <option value="subzero">Sub-Zero</option>
-            <option value="kano">Kano</option>
-          </select>
-        </label>
-      </div>
-      <div>
-        <label>
-          Arena:
-          <select className='text-gray-900' value={arenaType} onChange={(e) => setArenaType(e.target.value)}>
-            <option value="TOWER">Tower</option>
-            <option value="THRONE_ROOM">Throne Room</option>
-          </select>
-        </label>
-      </div>
-      {gameType === 'network' && (
-        <>
-          <div>
-            <label>
-              Are you host?
-              <input
-                type="checkbox"
-                checked={isHost}
-                onChange={(e) => setIsHost(e.target.checked)}
-              />
-            </label>
+    <>
+    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-gray-900 to-black text-white">
+      <div className="container mx-auto px-4 py-8">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h1 className="text-6xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-purple-500 uppercase">
+            popular fighters fighting - ppp
+          </h1>
+          <div className="flex items-center justify-center gap-4">
+            <Swords className="w-8 h-8 text-red-500" />
+            <h2 className="text-xl text-gray-300">Setup</h2>
           </div>
+        </div>
+
+        {/* Main Content */}
+        <div className="grid gap-12">
+          {/* Game Mode Selection */}
           <div>
-            <label>
-              Game Name:
-              <input
-                type="text"
-                value={gameName}
-                className='text-gray-900 px-2'
-                onChange={(e) => setGameName(e.target.value)}
-              />
-            </label>
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <Gamepad2 className="w-6 h-6 text-purple-500" />
+              <h2 className="text-2xl font-bold">Choose Game Mode</h2>
+            </div>
+            <GameModeSelect
+              selectedMode={selectedMode}
+              onSelectMode={setSelectedMode}
+            />
+            {selectedMode?.id === 'network' && (
+              <>
+                <div>
+                  <label>
+                    Are you host?
+                    <input
+                      type="checkbox"
+                      checked={isHost}
+                      onChange={(e) => setIsHost(e.target.checked)}
+                    />
+                  </label>
+                </div>
+                <div>
+                  <label>
+                    Game Name:
+                    <input
+                      type="text"
+                      value={gameName}
+                      className='text-gray-900 px-2'
+                      onChange={(e) => setGameName(e.target.value)}
+                    />
+                  </label>
+                </div>
+              </>
+            )}
           </div>
-        </>
-      )}
-      <button onClick={handleStartGame} className='bg-rose-800 p-4 rounded-xl'>Start Game</button>
+
+          {/* Character Selection */}
+          <div className={selectedMode ? 'opacity-100' : 'opacity-50 pointer-events-none'}>
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <Swords className="w-6 h-6 text-purple-500" />
+              <h2 className="text-2xl font-bold">Choose Your Fighter</h2>
+            </div>
+            <CharacterSelect
+              selectedCharacter={player1}
+              onSelectCharacter={setPlayer1}
+            />
+          </div>
+          { selectedMode?.id === "local" && (
+            <div className={'opacity-100'}>
+              <div className="flex items-center justify-center gap-4 mb-8">
+                <Swords className="w-6 h-6 text-purple-500" />
+                <h2 className="text-2xl font-bold">Player 2 - Choose Your Fighter</h2>
+              </div>
+              <CharacterSelect
+                selectedCharacter={player2}
+                onSelectCharacter={setPlayer2}
+              />
+            </div>
+          )}
+
+          {/* Stage Selection */}
+          <div className={selectedCharacter ? 'opacity-100' : 'opacity-50 pointer-events-none'}>
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <MapPin className="w-6 h-6 text-purple-500" />
+              <h2 className="text-2xl font-bold">Choose Your Battlefield</h2>
+            </div>
+            <StageSelect
+              selectedStage={selectedStage}
+              onSelectStage={setSelectedStage}
+            />
+          </div>
+
+          {/* Start Button */}
+          <div className="text-center">
+            <button
+              className={`
+                px-12 py-4 rounded-lg text-xl font-bold
+                transition-all duration-300 transform hover:scale-105
+                ${isReadyToStart
+                  ? 'bg-gradient-to-r from-red-500 to-purple-500 hover:from-red-600 hover:to-purple-600'
+                  : 'bg-gray-700 cursor-not-allowed'
+                }
+              `}
+              disabled={!isReadyToStart}
+              onClick={handleStartGame}
+            >
+              <div className="flex items-center gap-2">
+                <Play className="w-6 h-6" />
+                START BATTLE
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
+    </>
   );
 };
 

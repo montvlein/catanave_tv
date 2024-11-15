@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import dynamic from 'next/dynamic';
 import GameSetup from "@/client/components/game/settings";
 
 const MortalKombatGame = () => {
@@ -74,11 +73,11 @@ const MortalKombatGame = () => {
   };
 
   return (
-    <div id="parent">
+    <div>
       {!gameStarted ? (
         <GameSetup onStartGame={startGame} />
       ) : (
-        <>
+        <div id="parent">
           <div id="utils">
             <div id="player1Name" className="playerName">{player1Name}</div>
             <div id="player1LifeBar" className="lifebar">
@@ -95,7 +94,7 @@ const MortalKombatGame = () => {
             <span className="loadingLabel">Loading...</span>
           </div>: null
           }
-        </>
+        </div>
       )}
     </div>
   );
