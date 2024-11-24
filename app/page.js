@@ -9,8 +9,9 @@ export default function Home() {
     <div className="flex flex-col min-h-dvh relative">
       <header>
         <div className="invisible">
-          <h1>catannabistv</h1>
+          <h1>catannabis tv</h1>
           <h2>Memes de autor</h2>
+          <p>En Catannabus TV podes ver, leer y reir con memes de contenido original</p>
         </div>
         <Link href="https://cafecito.app/catannabistv" target="_blank" className="fixed top-5 right-5 z-50">
             <Button>
