@@ -11,6 +11,7 @@ function Header({title}) {
                     src={"/logo.webp"}
                     width={40}
                     height={40}
+                    alt="logo"
                 ></Image>
                 </Link>
             </div>
