@@ -10,7 +10,7 @@ export default function Home() {
       <header>
         <div className="invisible">
           <h1>catannabistv</h1>
-          <h2>videos</h2>
+          <h2>Memes de autor</h2>
         </div>
         <Link href="https://cafecito.app/catannabistv" target="_blank" className="fixed top-5 right-5 z-50">
             <Button>
