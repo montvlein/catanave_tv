@@ -10,7 +10,7 @@ export default function RootLayout({ children }) {
     <html lang="es">
       <head>
         {/* Favicon */}
-        <link rel="icon" href="/logo.webp" />
+        <link rel="icon" href="/logo.ico" />
 
         {/* Meta Tags Básicas */}
         <meta charSet="UTF-8" />
