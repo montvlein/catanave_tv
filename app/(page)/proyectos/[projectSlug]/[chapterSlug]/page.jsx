@@ -81,10 +81,10 @@ const ImageViewer = ({ params }) => {
   return (
     <div className="min-h-screen bg-gray-900 flex flex-col">
       {/* Header con navegación */}
-      <div className="sticky top-0 z-50 bg-gray-800 text-white p-4 shadow-lg">
+      <div className="sticky top-0 z-50 bg-gray-800 text-white p-2 shadow-lg">
         <div className="max-w-4xl mx-auto flex justify-between items-center">
           <Link href={`/proyectos/${params.projectSlug}`}
-            className="flex items-center text-white hover:bg-gray-700"
+            className="flex items-center text-white hover:bg-gray-700 p-2 rounded"
           >
             <ChevronLeft className="w-4 h-4 mr-2" />
             Volver al proyecto
@@ -92,14 +92,13 @@ const ImageViewer = ({ params }) => {
 
           <h2 className="text-lg font-semibold">{chapter?.title}</h2>
 
-          <Link href={hasNextChapter? hasNextChapter : ""}
-          variant="ghost"
-          disabled={!hasNextChapter}
-          className={`${hasNextChapter ? "": "invisible"} flex items-center text-white hover:bg-gray-700`}
+          <div
+            variant="ghost"
+            className={`invisible hidden sm:flex items-center text-white hover:bg-gray-700`}
           >
             Siguiente Capítulo
             <ChevronRight className="w-4 h-4 ml-2" />
-          </Link>
+          </div>
         </div>
       </div>
 
@@ -114,7 +113,7 @@ const ImageViewer = ({ params }) => {
         )}
 
         {/* Contenedor de imágenes */}
-        <div className={`w-full flex flex-col items-center ${loading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}>
+        <div className={`w-full flex flex-col items-center ${loading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300 mb-16`}>
           {images.map((image, index) => (
             <div
               key={index}
@@ -137,7 +136,7 @@ const ImageViewer = ({ params }) => {
         </div>
 
         {/* Navegación inferior */}
-        <div className="sticky bottom-4 left-0 right-0 flex justify-center mt-4 px-4">
+        <div className="fixed bottom-4 left-0 right-0 flex justify-center px-4">
           <div className="shadow-lg flex">
             <button
               onClick={()=>{router.push(hasPrevChapter)}}
