@@ -19,11 +19,14 @@ export default async function gatheringos() {
       <main className="container flex-1 mx-auto p-8 ">
         <RemoteControl/>
         <ul className="grid sm:grid-cols-2 gap-4">
-          {gatherings.map((post) => (
+          {gatherings.length > 0 ?
+           gatherings.map((post) => (
             <li className="w-full" key={post._id}>
                 <GatheringCard gathering={post} />
             </li>
-          ))}
+          )):
+          <p>No hay eventos registrados</p>
+        }
         </ul>
       </main>
       <Footer/>

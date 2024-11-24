@@ -8,9 +8,10 @@ function Header({title}) {
             <div className="flex items-center">
                 <Link href={"/"} className="flex flex-row justify-center items-center gap-4 text-font-playwrite-gb-semijoined">
                 <Image
-                    src={"/logo.png"}
+                    src={"/logo.webp"}
                     width={40}
                     height={40}
+                    alt="logo"
                 ></Image>
                 </Link>
             </div>

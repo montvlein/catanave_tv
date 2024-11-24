@@ -5,18 +5,36 @@ import { Loader2, ChevronLeft, ChevronRight } from 'lucide-react';
 import { sanityClient, urlFor } from '@/../../sanity.config';
 import Link from 'next/link';
 
-
-const ImageViewer = ({
-  params,
-  onNextChapter = () => {},
-  onPrevChapter = () => {},
-  hasNextChapter = false,
-  hasPrevChapter = false
-}) => {
-  const { chapterSlug } = params; // Obtenemos el chapterSlug desde los parámetros de la ruta
+const ImageViewer = ({ params }) => {
+  const { chapterSlug } = params;
   const [chapter, setChapter] = useState(null);
+  const [hasPrevChapter, setPrevChapter] = useState(null);
+  const [hasNextChapter, setNextChapter] = useState(null);
   const router = useRouter();
   const [images, setImages] = useState([])
+
+  const getPrevChapter = async (currentChapter) => {
+    const prevChapterQuery = `*[_type == "chapter" && number == $nextNumber][0]{
+      slug
+    }`;
+
+    const prevChapterData = await sanityClient.fetch(prevChapterQuery, {
+      nextNumber: currentChapter.number - 1,
+    });
+
+    if (prevChapterData) setPrevChapter(prevChapterData.slug.current)
+  }
+  const getNextChapter = async (currentChapter) => {
+    const nextChapterQuery = `*[_type == "chapter" && number == $nextNumber][0]{
+      slug
+    }`;
+
+    const nextChapterData = await sanityClient.fetch(nextChapterQuery, {
+      nextNumber: currentChapter.number + 1,
+    });
+
+    if (nextChapterData) setNextChapter(nextChapterData.slug.current)
+  }
 
   useEffect(() => {
     const fetchChapter = async () => {
@@ -24,17 +42,20 @@ const ImageViewer = ({
         _id,
         title,
         publishedAt,
+        number,
         pages[]{
           asset,
           pageNumber
         }
       }`;
 
-      const data = await sanityClient.fetch(query, { chapterSlug });
-      if (data) {
-        setChapter(data)
-        const sortedPages = data.pages.sort((a, b) => a.pageNumber - b.pageNumber);
+      const currentChapter = await sanityClient.fetch(query, { chapterSlug });
+      if (currentChapter) {
+        setChapter(currentChapter)
+        const sortedPages = currentChapter.pages.sort((a, b) => a.pageNumber - b.pageNumber);
         setImages(sortedPages);
+        getPrevChapter(currentChapter)
+        getNextChapter(currentChapter)
       } else {
         router.push('/404')
       }
@@ -71,15 +92,14 @@ const ImageViewer = ({
 
           <h2 className="text-lg font-semibold">{chapter?.title}</h2>
 
-          <button
-            variant="ghost"
-            onClick={onNextChapter}
-            disabled={!hasNextChapter}
-            className="invisible flex items-center text-white hover:bg-gray-700"
+          <Link href={hasNextChapter? hasNextChapter : ""}
+          variant="ghost"
+          disabled={!hasNextChapter}
+          className={`${hasNextChapter ? "": "invisible"} flex items-center text-white hover:bg-gray-700`}
           >
             Siguiente Capítulo
             <ChevronRight className="w-4 h-4 ml-2" />
-          </button>
+          </Link>
         </div>
       </div>
 
@@ -120,7 +140,7 @@ const ImageViewer = ({
         <div className="sticky bottom-4 left-0 right-0 flex justify-center mt-4 px-4">
           <div className="shadow-lg flex">
             <button
-              onClick={onPrevChapter}
+              onClick={()=>{router.push(hasPrevChapter)}}
               disabled={!hasPrevChapter}
               variant="ghost"
               className="bg-gray-800 p-2 rounded-l-lg flex items-center text-white cursor-pointer hover:bg-gray-700 disabled:bg-gray-400 disabled:text-gray-200 disabled:line-through disabled:cursor-not-allowed"
@@ -129,7 +149,7 @@ const ImageViewer = ({
               Anterior
             </button>
             <button
-              onClick={onNextChapter}
+              onClick={()=>{router.push(hasNextChapter)}}
               disabled={!hasNextChapter}
               variant="ghost"
               className="bg-gray-800 p-2 rounded-r-lg flex items-center text-white cursor-pointer hover:bg-gray-700 disabled:bg-gray-400 disabled:text-gray-200 disabled:line-through disabled:cursor-not-allowed"
