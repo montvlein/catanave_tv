@@ -46,8 +46,9 @@ export default function RootLayout({ children }) {
         <link rel="canonical" href="https://catannabis.com" />
 
         {/* Schema.org para SEO Local */}
-        <script type="application/ld+json">
-          {JSON.stringify({
+        <script type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "Catannabis TV",
@@ -60,8 +61,9 @@ export default function RootLayout({ children }) {
               "https://www.youtube.com/@Catanavetv",
               "https://www.tiktok.com/@catannabis"
             ]
-          })}
-        </script>
+          })
+        }}
+        ></script>
       </head>
       <body>{children}</body>
     </html>
