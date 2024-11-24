@@ -11,7 +11,7 @@ export default function Home() {
         <div className="invisible">
           <h1>catannabis tv</h1>
           <h2>Memes de autor</h2>
-          <p>En Catannabus TV podes ver, leer y reir con memes de contenido original</p>
+          <p>En Catannabis TV podes ver, leer y reir con memes de contenido original</p>
         </div>
         <Link href="https://cafecito.app/catannabistv" target="_blank" className="fixed top-5 right-5 z-50">
             <Button>
