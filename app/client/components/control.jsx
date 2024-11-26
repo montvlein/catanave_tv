@@ -44,8 +44,8 @@ const RemoteControl = ({children}) => {
         <div className="h-full flex flex-col justify-between">
           <div className="space-y-4 flex flex-col justify-center items-center">
             <Link href={paths.home} className={styles(paths.home)} ><Youtube /> Videos</Link>
-            <Link href={paths.projects} className={styles(paths.projects)} ><BookImage /> Proyectos</Link>
-            <Link href={paths.gatherings} className={`${styles(paths.gatherings)} invisible`} prefetch={false}><CalendarRange /> Eventos</Link>
+            <Link href={paths.projects} className={styles(paths.projects)} title='proyectos' ><BookImage /> Proyectos</Link>
+            <Link href={paths.gatherings} className={`${styles(paths.gatherings)} invisible`} prefetch={false} title='eventos'><CalendarRange /> Eventos</Link>
           </div>
 
           <div className='flex flex-col gap-2'>
