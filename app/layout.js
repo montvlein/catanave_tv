@@ -3,10 +3,10 @@ import "./globals.css";
 
 export const metadata = {
   title: {
-    default: "Memes de autor, humor y entretenimiento - Catannabis TV",
+    default: "Memes de autor - Catannabis TV",
     template: `%s || Catannabis TV`
   },
-  description: "Descubre los mejores memes de autor en Catannabis TV. Humor inteligente y entretenimiento asegurado con contenido original que te hará reír sin parar. ¡Únete a nuestra comunidad de amantes del humor creativo y pasa un buen rato!",
+  description: "Descubre los mejores memes de autor en Catannabis TV. Humor inteligente y entretenimiento asegurado con contenido original que te hará reír sin parar.",
   keywords: ["memes", "humor", "entretenimiento", "Catannabis", "TV", "autor", "canabis", "latinoamerica", "humor fumado"],
   openGraph: {
     type: "website",
