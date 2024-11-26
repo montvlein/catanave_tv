@@ -38,8 +38,8 @@ const RemoteControl = ({children}) => {
         <div className={`w-3 h-3 ${colorCircle} rounded-full mb-4 mx-auto`} style={{filter: 'drop-shadow(0px 2px 6px rgba(0, 255, 0, 0.6))'}}/>
         <div className="h-full flex flex-col justify-between">
           <div className="space-y-4 flex flex-col justify-center items-center">
-            <Link href={paths.home} className={styles(paths.home)} prefetch={false}><Youtube /> Videos</Link>
-            <Link href={paths.projects} className={styles(paths.projects)} prefetch={false}><BookImage /> Proyectos</Link>
+            <Link href={paths.home} className={styles(paths.home)} ><Youtube /> Videos</Link>
+            <Link href={paths.projects} className={styles(paths.projects)} ><BookImage /> Proyectos</Link>
             <Link href={paths.gatherings} className={`${styles(paths.gatherings)} invisible`} prefetch={false}><CalendarRange /> Eventos</Link>
           </div>
 
