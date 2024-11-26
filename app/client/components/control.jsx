@@ -1,10 +1,11 @@
 'use client'
 
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { usePathname  } from 'next/navigation'
 import { paths } from '@/utils/routes';
 import { Menu, Youtube, BookImage, CalendarRange } from 'lucide-react';
+import { isMobile } from 'react-device-detect';
 
 const RemoteControl = ({children}) => {
   const pathname = usePathname()
@@ -14,11 +15,15 @@ const RemoteControl = ({children}) => {
     ${isActive(selectedPath) ? "bg-rose-700" : "bg-gray-700 hover:bg-gray-600 active:scale-98"}`
   }
 
-  const [isTranslated, setIsTranslated] = useState(true);
+  const [isTranslated, setIsTranslated] = useState(isMobile ? true : false);
   const [colorCircle, setColorCircle] = useState("bg-green-700")
   const showControl = (e) => {
     setIsTranslated(!isTranslated)
   }
+
+  useEffect(()=>{
+    showControl()
+  },[])
 
   const changeColor = (e) => {
     setColorCircle((prevColor) => prevColor === "bg-orange-300" ? "bg-green-700" : "bg-orange-300")
