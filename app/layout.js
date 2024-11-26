@@ -3,15 +3,16 @@ import "./globals.css";
 
 export const metadata = {
   title: {
-    default: "Catannabis TV",
+    default: "Memes de autor, humor y entretenimiento - Catannabis TV",
     template: `%s || Catannabis TV`
   },
-  description: "Memes de autor, humor y entretenimiento - Catannabis TV",
+  description: "Descubre los mejores memes de autor en Catannabis TV. Humor inteligente y entretenimiento asegurado con contenido original que te hará reír sin parar. ¡Únete a nuestra comunidad de amantes del humor creativo y pasa un buen rato!",
   keywords: ["memes", "humor", "entretenimiento", "Catannabis", "TV", "autor", "canabis", "latinoamerica", "humor fumado"],
   openGraph: {
     type: "website",
     url: "https://catannabis.com",
     title: "Catannabis TV",
+    site_name: "Catannabis TV",
     description: "Memes de autor y entretenimiento - Catannabis TV",
     images: [
       {
@@ -56,6 +57,9 @@ export default function RootLayout({ children }) {
 
         {/* Favicon */}
         <link rel="icon" href="/logo.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+        <link rel="manifest" href="/site.webmanifest"></link>
 
         {/* Meta Tags Básicas */}
         <meta charSet="UTF-8" />
