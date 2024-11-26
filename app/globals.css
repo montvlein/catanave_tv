@@ -124,3 +124,26 @@ input[type="range"]::-moz-range-thumb {
     background-size: contain;
   }
 }
+
+@keyframes border-dance {
+  0% {
+    border-image-source: linear-gradient(0deg, #ff0000, #00ff00, #0000ff, #ff0000);
+  }
+  25% {
+    border-image-source: linear-gradient(90deg, #ff0000, #00ff00, #0000ff, #ff0000);
+  }
+  50% {
+    border-image-source: linear-gradient(180deg, #ff0000, #00ff00, #0000ff, #ff0000);
+  }
+  75% {
+    border-image-source: linear-gradient(270deg, #ff0000, #00ff00, #0000ff, #ff0000);
+  }
+  100% {
+    border-image-source: linear-gradient(360deg, #ff0000, #00ff00, #0000ff, #ff0000);
+  }
+}
+
+.border-dance {
+  border-image-slice: 1;
+  animation: border-dance 4s linear infinite;
+}
