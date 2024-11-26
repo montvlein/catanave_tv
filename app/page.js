@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-dvh relative">
       <header>
-        <div className="invisible">
+        <div className="hidden">
           <h1>catannabis tv</h1>
           <h2>Memes de autor</h2>
           <p>En Catannabis TV podes ver, leer y reir con memes de contenido original</p>
