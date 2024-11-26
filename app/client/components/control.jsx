@@ -31,7 +31,7 @@ const RemoteControl = ({children}) => {
 
   return (
     <nav className="fixed -bottom-4 sm:-bottom-24 -right-24 md:-bottom-20 md:-right-10 perspective-1000 z-30 md:z-50">
-      <button onClick={showControl} type='button' className='sm:hidden fixed bottom-20 right-4 p-4 bg-gray-500 rounded-full'>
+      <button onClick={showControl} type='button' className='md:hidden fixed bottom-20 right-4 p-4 bg-gray-500 rounded-full'>
         <Menu />
       </button>
       <div onClick={changeColor} className="w-[200px] bg-gray-800 rounded-3xl p-6 shadow-lg transition-transform duration-700 ease-in-out" style={{
