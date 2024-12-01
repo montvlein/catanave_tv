@@ -49,12 +49,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es">
       <head>
-        {/* Preconnect y Fonts */}
-        <link rel="preconnect" href="https://fonts.googleapis.com"/>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
-        <link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
-
         {/* Favicon */}
         <link rel="icon" href="/logo.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
@@ -70,7 +64,7 @@ export default function RootLayout({ children }) {
         {/* Canonical Link */}
         <link rel="canonical" href="https://catannabis.com" />
       </head>
-      <body>
+      <body className="bg-black font-montserrat text-slate-300">
         {children}
         {/* Schema.org para SEO Local */}
         <JsonLd data={jsonLdData} />
