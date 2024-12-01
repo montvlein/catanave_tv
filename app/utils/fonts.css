@@ -1,0 +1,26 @@
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-optical-sizing: auto;
+  src:
+    url("/fonts/montserrat-regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Montserrat";
+  font-style: italic;
+  font-weight: 400;
+  font-optical-sizing: auto;
+  src:
+    url("/fonts/montserrat-italic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "PlaywriteAR";
+    font-style: normal;
+    font-weight: 400;
+    font-optical-sizing: auto;
+    src:
+      url("/fonts/playwriteAr-regular.woff2") format("woff2");
+}
