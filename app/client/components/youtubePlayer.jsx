@@ -56,7 +56,7 @@ export default function YouTubeTv() {
             <div className="w-full flex gap-4 items-center justify-center">
               <button
                   type='button'
-                  name='previous_video'
+                  aria-label='previous_video'
                   className="relative w-6 h-6 cursor-pointer bg-gray-500 rounded-sm"
                   onClick={prevVideo}
                 >
@@ -65,7 +65,7 @@ export default function YouTubeTv() {
                 <MuteButton mute={mute} onClick={handleMute} />
                 <button
                   type='button'
-                  name='next_video'
+                  aria-label='next_video'
                   className="relative w-6 h-6 cursor-pointer bg-gray-500 rounded-sm"
                   onClick={nextVideo}
                 >
@@ -78,7 +78,7 @@ export default function YouTubeTv() {
 }
 
 const MuteButton = ({ mute, onClick }) => (
-    <button type='button' name='mute' onClick={onClick}>
+    <button type='button' aria-label='mute' onClick={onClick}>
       {mute === 1 ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
