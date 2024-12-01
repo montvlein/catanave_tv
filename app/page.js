@@ -19,7 +19,7 @@ export default function Home() {
       </header>
       <main className="flex-1 bg-img flex flex-wrap">
         <TvComponent>
-          <VideoComponent videoUrlMp4={"firma.mp4"} videoUrlWebm={"firma.webm"} />
+          <VideoComponent videoUrlMp4={"/videos/firma.mp4"} videoUrlWebm={"/videos/firma.webm"} />
         </TvComponent>
         <div className="w-full min-h-[1vh] md:min-h-0 bg-transparent"></div>
       </main>
