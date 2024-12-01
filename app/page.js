@@ -1,5 +1,6 @@
 import Footer from "@components/footer";
 import TvComponent from "./client/components/tv";
+import VideoComponent from "./client/components/videoPlayer";
 
 export default function Home() {
   return (
@@ -17,8 +18,10 @@ export default function Home() {
         </a>
       </header>
       <main className="flex-1 bg-img flex flex-wrap">
-        <TvComponent />
-        <div className="w-full min-h-[1vh] bg-transparent"></div>
+        <TvComponent>
+          <VideoComponent videoUrl={"firma.mp4"} />
+        </TvComponent>
+        <div className="w-full min-h-[1vh] md:min-h-0 bg-transparent"></div>
       </main>
       <Footer/>
     </div>
