@@ -31,66 +31,6 @@ body {
   font-style: normal;
 }
 
-/* input[type="range"] {
-  -webkit-appearance: none;
-  height: 2px;
-  background: #222;
-  border-radius: 5px;
-  outline: none;
-  opacity: 0.7;
-  transition: opacity .2s;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 30px;
-  height: 30px;
-  background: #00F;
-  background: url('/logo.webp') no-repeat center;
-  background-size: contain;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 90;
-}
-
-input[type="range"]::-moz-range-thumb {
-  width: 30px;
-  height: 30px;
-  background: #00F;
-  background: url('/logo.webp') no-repeat center;
-  background-size: contain;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 90;
-} */
-
-.bg-img {
-  background-image: url('/fondo_sitio_cata.webp');
-  background-size: cover;
-}
-
-.bg-custom {
-  position: relative;
-  overflow: hidden;
-}
-
-.bg-custom::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background-image: url('/logo.webp');
-  background-repeat: repeat;
-  background-size: auto 100px;
-  background-position: 0 0;
-  opacity: 0.25;
-  transform: rotate(26deg) scale(1.4);
-  z-index: -1;
-}
-
 .video-container {
   position: relative;
   width: 100%;
@@ -112,15 +52,21 @@ input[type="range"]::-moz-range-thumb {
   }
 }
 
+.bg-img {
+  background-image: url('/fondo_sitio_cata_movil.webp');
+  background-size: cover;
+  background-position: center;
+}
+
 .bg-tv {
-  background-image: url('/TV.webp');
+  background-image: url('/TV_movil.webp');
   background-position: center;
   background-size:98% 100%;
   background-repeat: no-repeat;
 }
 
 .bg-logo {
-  background-image: url('/logo.webp');
+  background-image: url('/logo_movil.webp');
   background-position: center;
   background-size:40% 60%;
   background-repeat: no-repeat;
@@ -128,7 +74,14 @@ input[type="range"]::-moz-range-thumb {
 
 @media (min-width: 768px) {
   .bg-tv {
+    background-image: url('/TV.webp');
     background-size: contain;
+  }
+  .bg-logo {
+    background-image: url('/logo.webp');
+  }
+  .bg-img {
+    background-image: url('/fondo_sitio_cata.webp');
   }
 }
 
