@@ -26,20 +26,20 @@
 }
 
 .bg-img {
-  background-image: url('/fondo_sitio_cata_movil.webp');
+  background-image: url('/images/fondo_sitio_cata_movil.webp');
   background-size: cover;
   background-position: center;
 }
 
 .bg-tv {
-  background-image: url('/TV_movil.webp');
+  background-image: url('/images/TV_movil.webp');
   background-position: center;
   background-size:98% 100%;
   background-repeat: no-repeat;
 }
 
 .bg-logo {
-  background-image: url('/logo_movil.webp');
+  background-image: url('/images/logo_movil.webp');
   background-position: center;
   background-size:40% 60%;
   background-repeat: no-repeat;
@@ -47,14 +47,14 @@
 
 @media (min-width: 768px) {
   .bg-tv {
-    background-image: url('/TV.webp');
+    background-image: url('/images/TV.webp');
     background-size: contain;
   }
   .bg-logo {
-    background-image: url('/logo.webp');
+    background-image: url('/images/logo.webp');
   }
   .bg-img {
-    background-image: url('/fondo_sitio_cata.webp');
+    background-image: url('/images/fondo_sitio_cata.webp');
   }
 }
 
