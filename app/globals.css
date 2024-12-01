@@ -31,7 +31,7 @@ body {
   font-style: normal;
 }
 
-input[type="range"] {
+/* input[type="range"] {
   -webkit-appearance: none;
   height: 2px;
   background: #222;
@@ -63,7 +63,7 @@ input[type="range"]::-moz-range-thumb {
   border-radius: 50%;
   cursor: pointer;
   z-index: 90;
-}
+} */
 
 .bg-img {
   background-image: url('/fondo_sitio_cata.webp');
@@ -72,7 +72,7 @@ input[type="range"]::-moz-range-thumb {
 
 .bg-custom {
   position: relative;
-  overflow: hidden; /* Para asegurarte de que el pseudo-elemento no se desborde */
+  overflow: hidden;
 }
 
 .bg-custom::before {
@@ -116,6 +116,13 @@ input[type="range"]::-moz-range-thumb {
   background-image: url('/TV.webp');
   background-position: center;
   background-size:98% 100%;
+  background-repeat: no-repeat;
+}
+
+.bg-logo {
+  background-image: url('/logo.webp');
+  background-position: center;
+  background-size:40% 60%;
   background-repeat: no-repeat;
 }
 
