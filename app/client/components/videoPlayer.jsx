@@ -3,7 +3,7 @@
 import { useState } from "react";
 import YouTubeTv from "./youtubePlayer";
 
-const VideoComponent = ({ videoUrl }) => {
+const VideoComponent = ({ videoUrlMp4, videoUrlWebm }) => {
     const handleEnd = () => {setInitialVideoEnds(true)}
     const [initialVideoEnds, setInitialVideoEnds] = useState(false)
 
@@ -17,7 +17,8 @@ const VideoComponent = ({ videoUrl }) => {
         // loop
         onEnded={handleEnd}
       >
-        <source src={videoUrl} type="video/mp4" />
+        <source src={videoUrlWebm} type="video/webm" />
+        <source src={videoUrlMp4} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
     </div>
