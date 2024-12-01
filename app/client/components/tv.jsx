@@ -58,13 +58,18 @@ function TvComponent() {
         </div>
         <RemoteControl>
           <div className="w-full flex gap-4 items-center justify-center">
-            <button className="relative w-6 h-6 cursor-pointer bg-gray-500 rounded-sm"
+            <button
+                type='button'
+                name='previous_video'
+                className="relative w-6 h-6 cursor-pointer bg-gray-500 rounded-sm"
                 onClick={prevVideo}
               >
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-t-8 border-b-8 border-r-8 border-transparent border-r-[#3c2c5e]"></div>
               </button>
               <MuteButton mute={mute} onClick={handleMute} />
               <button
+                type='button'
+                name='next_video'
                 className="relative w-6 h-6 cursor-pointer bg-gray-500 rounded-sm"
                 onClick={nextVideo}
               >
@@ -77,7 +82,7 @@ function TvComponent() {
 }
 
 const MuteButton = ({ mute, onClick }) => (
-  <button onClick={onClick}>
+  <button type='button' name='mute' onClick={onClick}>
     {mute === 1 ? (
       <svg
         xmlns="http://www.w3.org/2000/svg"
