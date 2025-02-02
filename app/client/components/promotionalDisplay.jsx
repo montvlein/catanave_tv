@@ -3,7 +3,7 @@ import { useRef, useState, useEffect } from "react";
 
 function PromotionalDisplay() {
     const videoRef = useRef(null);
-    const [visible, setVisible] = useState(true)
+    const [visible, setVisible] = useState(process.env.NEXT_PUBLIC_IS_PROMOTION_DAY_COMING_UP === "true")
     const handleEnd = () => {setVisible(false)}
 
     useEffect(() => {
