@@ -1,3 +1,5 @@
+import { videos } from "@/server/infoVideos";
+
 export async function GET(request) {
     const apiKey = process.env.YOUTUBE_API_KEY;
     const playlistId = process.env.NEXT_PUBLIC_PLAYLIST_ID;
@@ -11,13 +13,20 @@ export async function GET(request) {
         }
 
         const data = await response.json();
-        const videos = data.items.map((item) => ({
+        const videosData = data.items.map((item) => ({
             title: item.snippet.title,
             videoId: item.snippet.resourceId.videoId,
             thumbnails: item.snippet.thumbnails,
         }));
 
-        return new Response(JSON.stringify(videos), { status: 200 });
+        const localVideosToAdd = videos.map( item => ({
+            title: item.title,
+            videoId: item.videoId,
+            thumbnails: null
+        }))
+
+        const newVideos = [...videosData, ...localVideosToAdd]
+        return new Response(JSON.stringify(newVideos), { status: 200 });
     } catch (error) {
         return new Response(JSON.stringify({ error: error.message }), { status: 500 });
     }
