@@ -1,10 +1,9 @@
 import Footer from "@components/footer";
-import RemoteControl from "./client/components/control";
+import PromotionalDisplay from "./client/components/promotionalDisplay";
 import TvComponent from "./client/components/tv";
 import VideoComponent from "./client/components/videoPlayer";
 
 export default function Home() {
-  const isPromotionDayComingUp = new Date(2025, 1, 12) > new Date()
 
   return (
     <div className="flex flex-col min-h-dvh relative">
@@ -21,14 +20,9 @@ export default function Home() {
         </a>
       </header>
       <main className="flex-1 bg-img flex flex-wrap">
+        <PromotionalDisplay />
         <TvComponent>
-          { isPromotionDayComingUp ?
-            <>
-              <VideoComponent videoUrlMp4={"/videos/promo.mp4"} videoUrlWebm={"/videos/promo.webm"} isMuted={false} />
-              <RemoteControl/>
-            </>:
-           <VideoComponent videoUrlMp4={"/videos/firma.mp4"} videoUrlWebm={"/videos/firma.webm"} isMuted={true} />
-          }
+          <VideoComponent videoUrlMp4={"/videos/firma.mp4"} videoUrlWebm={"/videos/firma.webm"} isMuted={true} />
         </TvComponent>
         <div className="w-full min-h-[1vh] md:min-h-0 bg-transparent"></div>
       </main>
@@ -36,3 +30,4 @@ export default function Home() {
     </div>
   );
 }
+
