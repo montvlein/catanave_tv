@@ -4,10 +4,7 @@ import { useRef, useState, useEffect } from "react";
 function PromotionalDisplay() {
     const videoRef = useRef(null);
     const [visible, setVisible] = useState(true)
-
-    const [isPromotionDayComingUp, setIsPromotionDayComingUp] = useState(true)
-    const handleEnd = () => {setIsPromotionDayComingUp(false)}
-    if (!isPromotionDayComingUp) return <></>
+    const handleEnd = () => {setVisible(false)}
 
     useEffect(() => {
         if (videoRef.current) {
@@ -25,10 +22,10 @@ function PromotionalDisplay() {
     }, []);
 
     return (
-        <div className={`absolute z-[60] w-full h-full flex items-center bg-black/90 bg-logo bg-repeat ${visible? "" : "hidden"}`}>
+        <div className={`absolute z-[60] w-full h-full flex items-center bg-black/95 bg-logo bg-repeat ${visible? "" : "hidden"}`}>
             <div className="relative">
                 <div
-                    className="z-[61] absolute top-5 right-5 bg-white/30 text-rose-800 border-2 border-red-900 px-2 rounded-full font-bold cursor-pointer hover:bg-black"
+                    className="z-[61] absolute top-0 right-0 sm:top-5 sm:right-5 bg-white/30 text-rose-800 border-2 border-red-900 px-2 rounded-full font-bold cursor-pointer hover:bg-black"
                     onClick={()=>{
                         setVisible(false)
                         if (videoRef.current) {
