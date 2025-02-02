@@ -13,7 +13,7 @@ const VideoComponent = ({ videoUrlMp4, videoUrlWebm, isMuted }) => {
     <div className="z-10 aspect-square w-8/12 lg:w-6/12 h-3/4 mr-4 md:mr-12 mb-4 md:mb-10 lg:mb-28 rounded-lg bg-black shadow-[inset_0_0_8px_rgba(0,0,0,0.8)] flex items-center">
       <video
         autoPlay
-        {...(isMuted ? { muted: true } : {})}
+        muted
         onEnded={handleEnd}
       >
         <source src={videoUrlWebm} type="video/webm" />
