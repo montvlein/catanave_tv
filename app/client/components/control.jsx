@@ -41,11 +41,12 @@ const RemoteControl = ({children}) => {
           filter: 'drop-shadow(0px 2px 6px rgba(255, 255, 255, 0.3))'
         }}>
         <div className={`w-3 h-3 ${colorCircle} rounded-full mb-4 mx-auto`} style={{filter: 'drop-shadow(0px 2px 6px rgba(0, 255, 0, 0.6))'}}/>
+        <h6 className='uppercase text-rose-400 text-center text-xs my-2'>control remoto</h6>
         <div className="h-full flex flex-col justify-between">
           <div className="space-y-4 flex flex-col justify-center items-center">
             <Link href={paths.home} className={styles(paths.home)} ><Youtube /> Videos</Link>
             <Link href={paths.projects} className={styles(paths.projects)} title='proyectos' ><BookImage /> Proyectos</Link>
-            <Link href={paths.gatherings} className={`${styles(paths.gatherings)} invisible`} prefetch={false} title='eventos'><CalendarRange /> Eventos</Link>
+            <Link href={paths.gatherings} className={`${styles(paths.gatherings)}`} prefetch={false} title='eventos'><CalendarRange /> Eventos</Link>
           </div>
 
           <div className='flex flex-col gap-2'>
