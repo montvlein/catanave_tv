@@ -3,7 +3,7 @@
 import { useState } from "react";
 import YouTubeTv from "./youtubePlayer";
 
-const VideoComponent = ({ videoUrlMp4, videoUrlWebm, isMuted }) => {
+const VideoComponent = ({ videoUrlMp4, videoUrlWebm }) => {
     const handleEnd = () => {setInitialVideoEnds(true)}
     const [initialVideoEnds, setInitialVideoEnds] = useState(false)
 

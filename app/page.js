@@ -22,7 +22,7 @@ export default function Home() {
       <main className="flex-1 bg-img flex flex-wrap">
         <PromotionalDisplay />
         <TvComponent>
-          <VideoComponent videoUrlMp4={"/videos/firma.mp4"} videoUrlWebm={"/videos/firma.webm"} isMuted={true} />
+          <VideoComponent videoUrlMp4={"/videos/firma.mp4"} videoUrlWebm={"/videos/firma.webm"} />
         </TvComponent>
         <div className="w-full min-h-[1vh] md:min-h-0 bg-transparent"></div>
       </main>
