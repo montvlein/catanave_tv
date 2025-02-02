@@ -3,12 +3,12 @@
 import YouTube from 'react-youtube';
 import { useState, useCallback } from "react";
 import RemoteControl from './control';
-import { videos } from "@/server/infoVideos";
-
-const randomInit = Math.floor(Math.random() * videos.length)
+import useYouTubePlaylist from '@/server/youtubeHook';
 
 export default function YouTubeTv() {
-    const [actualVideo, setActualVideo] = useState(randomInit)
+    const { videos, loading, error } = useYouTubePlaylist();
+    const randomInt = Math.floor(Math.random() * videos.length )
+    const [actualVideo, setActualVideo] = useState(videos.length > 0 ? randomInt : 0)
     const [mute, setMute] = useState(1)
 
     const onEnd = useCallback((event) => {
@@ -46,12 +46,14 @@ export default function YouTubeTv() {
 
     return(
         <>
-            <YouTube
-              videoId={videos[actualVideo].videoId}
-              opts={videoOptions}
-              onEnd={onEnd}
-              className="z-10 aspect-square w-8/12 lg:w-6/12 h-3/4 mr-4 md:mr-12 mb-4 md:mb-10 lg:mb-28 rounded-lg bg-logo bg-no-repeat shadow-[inset_0_0_8px_rgba(0,0,0,0.8)]"
-              />
+        { !loading && !error && videos.length > 0 && (
+          <YouTube
+            videoId={videos[actualVideo].videoId}
+            opts={videoOptions}
+            onEnd={onEnd}
+            className="z-10 aspect-square w-8/12 lg:w-6/12 h-3/4 mr-4 md:mr-12 mb-4 md:mb-10 lg:mb-28 rounded-lg bg-logo bg-no-repeat shadow-[inset_0_0_8px_rgba(0,0,0,0.8)]"
+            />
+        )}
           <RemoteControl>
             <div className="w-full flex gap-4 items-center justify-center">
               <button
