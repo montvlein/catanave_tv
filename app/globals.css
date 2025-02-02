@@ -41,7 +41,7 @@
 .bg-logo {
   background-image: url('/images/logo_movil.webp');
   background-position: center;
-  background-size:40% 60%;
+  background-size:20% 16%;
 }
 
 @media (min-width: 768px) {
@@ -51,6 +51,7 @@
   }
   .bg-logo {
     background-image: url('/images/logo.webp');
+    background-size:40% 60%;
   }
   .bg-img {
     background-image: url('/images/fondo_sitio_cata.webp');
