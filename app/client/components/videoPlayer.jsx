@@ -3,7 +3,7 @@
 import { useState } from "react";
 import YouTubeTv from "./youtubePlayer";
 
-const VideoComponent = ({ videoUrlMp4, videoUrlWebm }) => {
+const VideoComponent = ({ videoUrlMp4, videoUrlWebm, isMuted }) => {
     const handleEnd = () => {setInitialVideoEnds(true)}
     const [initialVideoEnds, setInitialVideoEnds] = useState(false)
 
@@ -14,7 +14,6 @@ const VideoComponent = ({ videoUrlMp4, videoUrlWebm }) => {
       <video
         autoPlay
         muted
-        // loop
         onEnded={handleEnd}
       >
         <source src={videoUrlWebm} type="video/webm" />

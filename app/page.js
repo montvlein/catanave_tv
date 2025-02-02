@@ -1,8 +1,10 @@
 import Footer from "@components/footer";
+import PromotionalDisplay from "./client/components/promotionalDisplay";
 import TvComponent from "./client/components/tv";
 import VideoComponent from "./client/components/videoPlayer";
 
 export default function Home() {
+
   return (
     <div className="flex flex-col min-h-dvh relative">
       <header>
@@ -18,8 +20,9 @@ export default function Home() {
         </a>
       </header>
       <main className="flex-1 bg-img flex flex-wrap">
+        <PromotionalDisplay />
         <TvComponent>
-          <VideoComponent videoUrlMp4={"firma.mp4"} videoUrlWebm={"firma.webm"} />
+          <VideoComponent videoUrlMp4={"/videos/firma.mp4"} videoUrlWebm={"/videos/firma.webm"} isMuted={true} />
         </TvComponent>
         <div className="w-full min-h-[1vh] md:min-h-0 bg-transparent"></div>
       </main>
@@ -27,3 +30,4 @@ export default function Home() {
     </div>
   );
 }
+
