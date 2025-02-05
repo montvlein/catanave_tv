@@ -1,7 +1,6 @@
 import Footer from "@components/footer";
 import TvComponent from "./client/components/tv";
 import VideoComponent from "./client/components/videoPlayer";
-import YouTubeTv from "./client/components/youtubePlayer";
 
 export default function Home() {
 

@@ -5,7 +5,7 @@ import { useState, useCallback } from "react";
 import RemoteControl from './control';
 import useYouTubePlaylist from '@/server/youtubeHook';
 
-export default function YouTubeTv() {
+export default function YouTubeTv({oldCss=true}) {
     const { videos, loading, error } = useYouTubePlaylist();
     const randomInt = Math.floor(Math.random() * videos.length )
     const [actualVideo, setActualVideo] = useState(videos.length > 0 ? randomInt : 0)
@@ -51,7 +51,7 @@ export default function YouTubeTv() {
             videoId={videos[actualVideo].videoId}
             opts={videoOptions}
             onEnd={onEnd}
-            className="z-10 aspect-square w-8/12 lg:w-6/12 h-3/4 mr-4 md:mr-12 mb-4 md:mb-10 lg:mb-28 rounded-lg bg-logo bg-no-repeat shadow-[inset_0_0_8px_rgba(0,0,0,0.8)]"
+            className={`z-10 aspect-square ${oldCss? "w-8/12 lg:w-6/12 h-3/4": "w-full h-full"} mr-4 md:mr-12 mb-4 md:mb-10 lg:mb-28 rounded-lg bg-logo bg-no-repeat shadow-[inset_0_0_8px_rgba(0,0,0,0.8)]`}
             />
         )}
           <RemoteControl>
