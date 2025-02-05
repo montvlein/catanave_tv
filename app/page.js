@@ -1,5 +1,4 @@
 import Footer from "@components/footer";
-import PromotionalDisplay from "./client/components/promotionalDisplay";
 import TvComponent from "./client/components/tv";
 import VideoComponent from "./client/components/videoPlayer";
 
@@ -20,7 +19,6 @@ export default function Home() {
         </a>
       </header>
       <main className="flex-1 bg-img flex flex-wrap">
-        <PromotionalDisplay />
         <TvComponent>
           <VideoComponent videoUrlMp4={"/videos/firma.mp4"} videoUrlWebm={"/videos/firma.webm"} />
         </TvComponent>

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from "react";
+import RemoteControl from "./control";
 import YouTubeTv from "./youtubePlayer";
 
 const VideoComponent = ({ videoUrlMp4, videoUrlWebm }) => {
@@ -20,6 +21,9 @@ const VideoComponent = ({ videoUrlMp4, videoUrlWebm }) => {
         <source src={videoUrlMp4} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
+      <RemoteControl>
+        <div className="invisible h-10"></div>
+      </RemoteControl>
     </div>
 )};
 
