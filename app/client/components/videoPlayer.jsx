@@ -6,7 +6,7 @@ import YouTubeTv from "./youtubePlayer";
 
 const VideoComponent = ({ videoUrlMp4, videoUrlWebm }) => {
     const handleEnd = () => {setInitialVideoEnds(true)}
-    const [initialVideoEnds, setInitialVideoEnds] = useState(false)
+    const [initialVideoEnds, setInitialVideoEnds] = useState(true)
 
     if (initialVideoEnds) return <YouTubeTv/>
 
