@@ -1,5 +1,5 @@
 import Footer from "@components/footer";
-import TvComponent from "./client/components/tv";
+import TvComponent from "./client/components/tv_v2";
 import VideoComponent from "./client/components/videoPlayer";
 
 export default function Home() {
