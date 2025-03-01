@@ -80,3 +80,24 @@
   border-image-slice: 1;
   animation: border-dance 4s linear infinite;
 }
+
+.image-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+}
+
+.overlay-area-1 {
+  position: absolute;
+  top: 10.90%;
+  left: 14.96%;
+  width: 65.60%;
+  height: 67.81%;
+}
+
